@@ -1,0 +1,100 @@
+(tensorflow) chen_xy@xena:~/tensor/tensorview$ echo $LD_LIBRARY_PATH
+/users/chen_xy/software/paraview_build/lib/:/users/chen_xy/.cudnn/7.5/lib64/:
+(tensorflow) chen_xy@xena:~/tensor/tensorview$ python mcnn_ada2_insitu.py --interval=1 --alpha=0.85 --totalepoch=10
+Extracting ../MNIST_data/train-images-idx3-ubyte.gz
+Extracting ../MNIST_data/train-labels-idx1-ubyte.gz
+Extracting ../MNIST_data/t10k-images-idx3-ubyte.gz
+Extracting ../MNIST_data/t10k-labels-idx1-ubyte.gz
+@test epoch(0) mem:0M
+2018-09-21 14:05:25.759857: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2018-09-21 14:05:25.759889: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2018-09-21 14:05:25.759900: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2018-09-21 14:05:25.759907: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2018-09-21 14:05:25.759953: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2018-09-21 14:05:25.978475: E tensorflow/stream_executor/cuda/cuda_driver.cc:406] failed call to cuInit: CUDA_ERROR_NO_DEVICE
+2018-09-21 14:05:25.978781: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:152] no NVIDIA GPU device is present: /dev/nvidia0 does not exist
+
+training... with size 32 64
+===============================
+Epoch: 0000 cost= 0.291410979
+===============================
+@test epoch(0)mem usage:read file 1283M accuracy(0.9809)
+epo(0) training:(45.881786)sec testing:(1.933613)sec
+@test epoch(1) mem:1283M
+
+training... with size 32 64
+===============================
+Epoch: 0001 cost= 0.079673117
+===============================
+@test epoch(1)mem usage:read file 1378M accuracy(0.9868)
+epo(1) training:(43.630392)sec testing:(1.890465)sec
+@test epoch(2) mem:1378M
+
+training... with size 32 64
+===============================
+Epoch: 0002 cost= 0.050698300
+===============================
+@test epoch(2)mem usage:read file 1425M accuracy(0.9909)
+epo(2) training:(42.697446)sec testing:(1.901917)sec
+@test epoch(3) mem:1425M
+
+training... with size 32 64
+===============================
+Epoch: 0003 cost= 0.036810495
+===============================
+@test epoch(3)mem usage:read file 1477M accuracy(0.9905)
+mcnn_ada2_insitu.py:187: RuntimeWarning: invalid value encountered in divide
+  anm=(a-np.mean(a,axis=0))/np.std(a,axis=0)        #normalize activation
+/users/chen_xy/tensor/tensorview/buildSet.py:24: RuntimeWarning: invalid value encountered in greater_equal
+  z=zip(np.where(tmp>=alpha)[0],np.where(tmp>=alpha)[1])
+epo(3) training:(44.289968)sec testing:(1.936865)sec
+@test epoch(4) mem:1477M
+
+training... with size 32 64
+===============================
+Epoch: 0004 cost= 0.029001402
+===============================
+@test epoch(4)mem usage:read file 1494M accuracy(0.9921)
+epo(4) training:(43.330097)sec testing:(1.916079)sec
+@test epoch(5) mem:1494M
+
+training... with size 32 64
+===============================
+Epoch: 0005 cost= 0.023699393
+===============================
+@test epoch(5)mem usage:read file 1521M accuracy(0.9919)
+epo(5) training:(44.268374)sec testing:(1.881918)sec
+@test epoch(6) mem:1521M
+
+training... with size 32 64
+===============================
+Epoch: 0006 cost= 0.019834160
+===============================
+@test epoch(6)mem usage:read file 1575M accuracy(0.99)
+epo(6) training:(43.410902)sec testing:(2.055603)sec
+@test epoch(7) mem:1575M
+
+training... with size 32 64
+===============================
+Epoch: 0007 cost= 0.016177756
+===============================
+@test epoch(7)mem usage:read file 1593M accuracy(0.9924)
+epo(7) training:(44.073258)sec testing:(1.961831)sec
+@test epoch(8) mem:1593M
+
+training... with size 32 64
+===============================
+Epoch: 0008 cost= 0.014203416
+===============================
+@test epoch(8)mem usage:read file 1599M accuracy(0.9928)
+epo(8) training:(44.413536)sec testing:(1.905658)sec
+@test epoch(9) mem:1599M
+
+training... with size 32 64
+===============================
+Epoch: 0009 cost= 0.012745680
+===============================
+@test epoch(9)mem usage:read file 1663M accuracy(0.9917)
+epo(9) training:(44.507116)sec testing:(1.925987)sec
+(tensorflow) chen_xy@xena:~/tensor/tensorview$ 
+
