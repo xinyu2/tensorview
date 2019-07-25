@@ -1,0 +1,6 @@
+{
+  "DIRECTORY": {
+    "DATA_DIR":     "/Documents/datasets/MNIST_data/",
+    "PARAVIEW_DIR":   "/Downloads/ParaView-5.6.0-MPI-Linux-64bit/lib"
+  }
+}

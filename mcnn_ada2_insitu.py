@@ -22,22 +22,36 @@ Project: https://github.com/aymericdamien/TensorFlow-Examples/
 ###==========================================================
 
 from __future__ import print_function
+import tensorflow as tf
+import numpy as np
+
+import argparse
+parser = argparse.ArgumentParser() 
+parser.add_argument('--interval', type=int,default=1)
+parser.add_argument('--alpha', type=float,default=0.85)
+parser.add_argument('--totalepoch', type=int,default=4)
+parser.add_argument('--configure', type=str,default='')
+
+args = parser.parse_args()
+eps,alp,training_epochs,configure=args.interval,args.alpha,args.totalepoch,args.configure
+
+from timeit import default_timer as timer
+import resource,os,sys
+
+from util import cfg
+cf=cfg()
+cf.parseConfig(configure)
 
 # Import MNIST data
 from tensorflow.examples.tutorials.mnist import input_data
-mnist = input_data.read_data_sets("../dnn/mnist/MNIST_data/", one_hot=True)
-
-import tensorflow as tf
-import numpy as np
-from timeit import default_timer as timer
-import resource
+mnist = input_data.read_data_sets(cf.datadir, one_hot=True)
+# mnist = input_data.read_data_sets("../dnn/mnist/MNIST_data/", one_hot=True)
 import buildSet as bs
 import reNN as rn
 import act2grdcp as ag
 
-import sys
-sys.path.append('/home/c/tools/paraview_build/lib')
-sys.path.append('/home/c/tools/paraview_build/lib/site-packages')
+sys.path.append(cf.paraviewdir)
+sys.path.append(cf.paraviewdir+'/python2.7/site-packages')
 
 from paraview.simple import *
 import vtkPVVTKExtensionsCorePython
@@ -47,19 +61,7 @@ except: from paraview.simple import *
 
 from paraview import coprocessing
 import vtkPVCatalystPython as vtkCoProcessorPython
-
 import vtk
-import numpy as np
-
-import argparse
-parser = argparse.ArgumentParser() 
-parser.add_argument('--interval', type=int,default=1)
-parser.add_argument('--alpha', type=float,default=0.85)
-parser.add_argument('--totalepoch', type=int,default=4)
-
-args = parser.parse_args()
-eps,alp,training_epochs=args.interval,args.alpha,args.totalepoch
-
 #--------------------------------------------------------------
 # catalyst functions
 #--------------------------------------------------------------
